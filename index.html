@@ -27,7 +27,7 @@
     }
 
     /* タイルのガラスモーフィズムスタイル */
-    .tv-tile {
+    .tv-tile, .footer-btn {
       background: rgba(20, 25, 35, 0.65);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
@@ -38,7 +38,7 @@
     }
 
     /* フォーカス（選択）状態のハイライト再現 */
-    .tv-tile.focused, .tv-tile:hover {
+    .tv-tile.focused, .tv-tile:hover, .footer-btn.focused, .footer-btn:hover {
       background: rgba(45, 55, 75, 0.85);
       border: 2px solid rgba(255, 255, 255, 0.9);
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.2);
@@ -61,15 +61,15 @@
   <header class="flex justify-between items-start text-white/90 z-20">
     <!-- Left: TV Instruction -->
     <div class="flex items-center space-x-3 bg-black/40 px-4 py-2 rounded-lg backdrop-blur-md border border-white/10">
-      <i data-lucide="tv" class="w-6 h-6 text-white"></i>
-      <span class="text-sm font-medium tracking-wide">
+      <i data-lucide="tv" class="w-6 h-6 text-white shrink-0"></i>
+      <span id="i18n-tv-instruction" class="text-sm font-medium tracking-wide">
         テレビをご覧になる場合、リモコンの「地デジ」<br>ボタンを押してお楽しみください。
       </span>
     </div>
 
     <!-- Center: Wi-Fi Info -->
     <div class="flex items-center space-x-3 bg-black/40 px-5 py-2 rounded-lg backdrop-blur-md border border-white/10">
-      <i data-lucide="wifi" class="w-7 h-7 text-pink-500 animate-pulse"></i>
+      <i data-lucide="wifi" class="w-7 h-7 text-pink-500 animate-pulse shrink-0"></i>
       <div class="text-sm font-mono leading-tight">
         <div class="flex space-x-3">
           <span class="text-white/60">SSID</span>
@@ -97,31 +97,31 @@
       <!-- VOD -->
       <div class="tv-tile focusable rounded-xl p-5 flex flex-col items-center justify-center h-36 space-y-2" data-action="vod">
         <i data-lucide="clapperboard" class="w-10 h-10 text-white/90"></i>
-        <span class="text-lg font-bold tracking-wider">VOD</span>
+        <span id="i18n-tile-vod" class="text-lg font-bold tracking-wider">VOD</span>
       </div>
 
       <!-- ミラーリング -->
       <div class="tv-tile focusable rounded-xl p-5 flex flex-col items-center justify-center h-36 space-y-2" data-action="mirroring">
         <i data-lucide="smartphone" class="w-10 h-10 text-white/90"></i>
-        <span class="text-lg font-bold tracking-wider">ミラーリング</span>
+        <span id="i18n-tile-mirroring" class="text-lg font-bold tracking-wider">ミラーリング</span>
       </div>
 
       <!-- キャスト -->
       <div class="tv-tile focusable rounded-xl p-5 flex flex-col items-center justify-center h-36 space-y-2" data-action="cast">
         <i data-lucide="cast" class="w-10 h-10 text-white/90"></i>
-        <span class="text-lg font-bold tracking-wider">キャスト</span>
+        <span id="i18n-tile-cast" class="text-lg font-bold tracking-wider">キャスト</span>
       </div>
 
       <!-- 検索 -->
       <div class="tv-tile focusable rounded-xl p-5 flex flex-col items-center justify-center h-36 space-y-2" data-action="search">
         <i data-lucide="search" class="w-10 h-10 text-white/90"></i>
-        <span class="text-lg font-bold tracking-wider">検索</span>
+        <span id="i18n-tile-search" class="text-lg font-bold tracking-wider">検索</span>
       </div>
 
       <!-- BGM (Audio Control) -->
       <div class="tv-tile focusable rounded-xl p-5 flex flex-col items-center justify-center h-36 space-y-2 relative overflow-hidden" data-action="bgm" id="bgm-tile">
         <i data-lucide="music" class="w-10 h-10 text-white/90" id="bgm-icon"></i>
-        <span class="text-lg font-bold tracking-wider">BGM</span>
+        <span id="i18n-tile-bgm" class="text-lg font-bold tracking-wider">BGM</span>
         <div id="bgm-status-badge" class="absolute bottom-2 text-xs bg-white/20 px-2 py-0.5 rounded-full text-white/80">
           停止中
         </div>
@@ -130,7 +130,7 @@
       <!-- ニュース -->
       <div class="tv-tile focusable rounded-xl p-5 flex flex-col items-center justify-center h-36 space-y-2" data-action="news">
         <i data-lucide="video" class="w-10 h-10 text-white/90"></i>
-        <span class="text-lg font-bold tracking-wider">ニュース</span>
+        <span id="i18n-tile-news" class="text-lg font-bold tracking-wider">ニュース</span>
       </div>
     </div>
 
@@ -166,14 +166,14 @@
   <footer class="flex justify-between items-end z-20">
     <!-- Left Footer: Guide & Settings -->
     <div class="flex items-center space-x-6 text-sm">
-      <button onclick="toggleModal('modal-guide')" class="flex items-center space-x-2 bg-black/40 hover:bg-black/60 px-4 py-2 rounded-lg backdrop-blur-md border border-white/10 transition">
+      <button class="footer-btn focusable flex items-center space-x-2 bg-black/40 hover:bg-black/60 px-4 py-2 rounded-lg backdrop-blur-md border border-white/10 transition" data-action="guide">
         <i data-lucide="lightbulb" class="w-5 h-5 text-yellow-400"></i>
-        <span>リモコン操作のご案内</span>
+        <span id="i18n-btn-guide">リモコン操作のご案内</span>
       </button>
 
-      <button onclick="toggleModal('modal-settings')" class="flex items-center space-x-2 bg-black/40 hover:bg-black/60 px-4 py-2 rounded-lg backdrop-blur-md border border-white/10 transition">
+      <button class="footer-btn focusable flex items-center space-x-2 bg-black/40 hover:bg-black/60 px-4 py-2 rounded-lg backdrop-blur-md border border-white/10 transition" data-action="settings">
         <i data-lucide="globe" class="w-5 h-5 text-blue-400"></i>
-        <span>Language / 言語選択</span>
+        <span id="i18n-btn-lang">Language / 言語選択</span>
         <div class="flex space-x-1 ml-2">
           <span class="text-xs">🇯🇵</span>
           <span class="text-xs">🇺🇸</span>
@@ -187,9 +187,9 @@
     <div class="bg-black/60 backdrop-blur-md border border-white/10 rounded-xl p-3 flex items-center space-x-6">
       <div class="text-center pr-3 border-r border-white/20">
         <div id="weather-location" class="text-xs font-bold text-white/90">東京都中野区</div>
-        <div class="text-[10px] text-white/60">の天気</div>
-        <div class="text-[10px] text-white/60 mt-1">気温(℃) 最低/最高</div>
-        <div class="text-[10px] text-white/60">降水確率(%)</div>
+        <div id="i18n-weather-suffix" class="text-[10px] text-white/60">の天気</div>
+        <div id="i18n-weather-temp" class="text-[10px] text-white/60 mt-1">気温(℃) 最低/最高</div>
+        <div id="i18n-weather-rain" class="text-[10px] text-white/60">降水確率(%)</div>
       </div>
 
       <!-- Today Weather -->
@@ -216,55 +216,57 @@
   </audio>
 
   <!-- ===== MIRRORING GUIDANCE MODAL ===== -->
-  <div id="modal-mirroring" class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center hidden z-50">
+  <div id="modal-mirroring" class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center hidden z-50" onclick="if(event.target===this) closeModal('modal-mirroring')">
     <div class="bg-slate-900 border border-white/20 rounded-2xl p-6 w-11/12 max-w-lg space-y-5 shadow-2xl">
       <div class="flex justify-between items-center border-b border-white/10 pb-3">
-        <h3 class="text-xl font-bold flex items-center gap-2 text-blue-400">
+        <h3 id="i18n-modal-mirroring-title" class="text-xl font-bold flex items-center gap-2 text-blue-400">
           <i data-lucide="smartphone" class="w-6 h-6"></i> スマホ画面のミラーリング手順
         </h3>
-        <button onclick="toggleModal('modal-mirroring')" class="text-white/60 hover:text-white">✕</button>
+        <button onclick="closeModal('modal-mirroring')" class="text-white/60 hover:text-white text-xl p-1">✕</button>
       </div>
 
       <div class="space-y-4 text-sm text-white/90">
         <div class="bg-slate-800/80 p-3 rounded-lg border border-white/10">
-          <div class="font-bold text-yellow-400 mb-1 flex items-center gap-1">
-            <span>📱 iPhone / iPad の場合 (AirPlay)</span>
+          <div id="i18n-ios-title" class="font-bold text-yellow-400 mb-1 flex items-center gap-1">
+            📱 iPhone / iPad の場合 (AirPlay)
           </div>
           <ol class="list-decimal list-inside space-y-1 text-xs text-gray-300">
-            <li>スマホをテレビと同じWi-Fiに接続します。</li>
-            <li>画面右上からスワイプして「コントロールセンター」を開きます。</li>
-            <li>「画面ミラーリング (2つの四角マーク)」アイコンをタップします。</li>
-            <li>一覧から「AirReceiver」または「Fire TV」を選択してください。</li>
+            <li id="i18n-ios-step1">スマホをテレビと同じWi-Fiに接続します。</li>
+            <li id="i18n-ios-step2">画面右上からスワイプして「コントロールセンター」を開きます。</li>
+            <li id="i18n-ios-step3">「画面ミラーリング」アイコンをタップします。</li>
+            <li id="i18n-ios-step4">一覧から対象のテレビを選択してください。</li>
           </ol>
         </div>
 
         <div class="bg-slate-800/80 p-3 rounded-lg border border-white/10">
-          <div class="font-bold text-emerald-400 mb-1 flex items-center gap-1">
-            <span>🤖 Android の場合 (キャスト/ミラーリング)</span>
+          <div id="i18n-android-title" class="font-bold text-emerald-400 mb-1 flex items-center gap-1">
+            🤖 Android の場合 (キャスト/ミラーリング)
           </div>
           <ol class="list-decimal list-inside space-y-1 text-xs text-gray-300">
-            <li>クイック設定から「画面のキャスト」または「Smart View」を選択。</li>
-            <li>テレビ端末（Fire TV）を選択すると画面が投影されます。</li>
+            <li id="i18n-android-step1">クイック設定から「画面のキャスト」または「Smart View」を選択。</li>
+            <li id="i18n-android-step2">テレビ端末を選択すると画面が投影されます。</li>
           </ol>
         </div>
       </div>
 
       <div class="flex justify-end pt-2">
-        <button onclick="toggleModal('modal-mirroring')" class="px-5 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-sm font-medium">了解</button>
+        <button id="i18n-mirroring-close" onclick="closeModal('modal-mirroring')" class="px-5 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-sm font-medium">了解 / 閉じる</button>
       </div>
     </div>
+  </div>
+
   <!-- ===== LANGUAGE MODAL ===== -->
-  <div id="modal-settings" class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center hidden z-50">
+  <div id="modal-settings" class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center hidden z-50" onclick="if(event.target===this) closeModal('modal-settings')">
     <div class="bg-slate-900 border border-white/20 rounded-2xl p-6 w-11/12 max-w-lg space-y-5 shadow-2xl">
       <div class="flex justify-between items-center border-b border-white/10 pb-3">
-        <h3 class="text-xl font-bold flex items-center gap-2">
+        <h3 id="i18n-modal-lang-title" class="text-xl font-bold flex items-center gap-2">
           <i data-lucide="globe" class="w-5 h-5 text-blue-400"></i> 言語設定 / Language
         </h3>
-        <button onclick="toggleModal('modal-settings')" class="text-white/60 hover:text-white">✕</button>
+        <button onclick="closeModal('modal-settings')" class="text-white/60 hover:text-white text-xl p-1">✕</button>
       </div>
 
       <div class="space-y-3 py-2">
-        <label class="block text-white/70 text-sm mb-2">表示言語を選択してください / Select Language</label>
+        <label id="i18n-modal-lang-sub" class="block text-white/70 text-sm mb-2">表示言語を選択してください / Select Language</label>
         <div class="grid grid-cols-2 gap-3">
           <button onclick="selectLanguage('ja')" id="lang-ja" class="lang-btn flex items-center space-x-3 p-3 bg-blue-600/30 border-2 border-blue-500 rounded-xl hover:bg-blue-600/50 transition">
             <span class="text-2xl">🇯🇵</span>
@@ -286,27 +288,27 @@
       </div>
 
       <div class="flex justify-end pt-3 border-t border-white/10">
-        <button onclick="toggleModal('modal-settings')" class="px-5 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-sm font-medium">閉じる / Close</button>
+        <button onclick="closeModal('modal-settings')" class="px-5 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-sm font-medium">閉じる / Close</button>
       </div>
     </div>
   </div>
 
   <!-- ===== GUIDE MODAL ===== -->
-  <div id="modal-guide" class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center hidden z-50">
+  <div id="modal-guide" class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center hidden z-50" onclick="if(event.target===this) closeModal('modal-guide')">
     <div class="bg-slate-900 border border-white/20 rounded-2xl p-6 w-11/12 max-w-lg space-y-4 shadow-2xl">
       <div class="flex justify-between items-center border-b border-white/10 pb-3">
-        <h3 class="text-xl font-bold flex items-center gap-2">
+        <h3 id="i18n-modal-guide-title" class="text-xl font-bold flex items-center gap-2">
           <i data-lucide="help-circle" class="w-5 h-5 text-yellow-400"></i> 操作のご案内
         </h3>
-        <button onclick="toggleModal('modal-guide')" class="text-white/60 hover:text-white">✕</button>
+        <button onclick="closeModal('modal-guide')" class="text-white/60 hover:text-white text-xl p-1">✕</button>
       </div>
       <div class="space-y-3 text-sm text-white/80">
-        <p>・<strong>キーボード操作:</strong> 矢印キー [↑][↓][←][→] で移動、[Enter] で選択。</p>
-        <p>・<strong>タッチ操作:</strong> タップして各種機能やアプリを開きます。</p>
-        <p>・<strong>BGM機能:</strong> BGMパネルを押し音源URLを設定することで、ホテルのように常時BGMを流せます。</p>
+        <p id="i18n-guide-step1">・<strong>リモコン/キーボード操作:</strong> 矢印キー [↑][↓][←][→] で移動、[Enter] で選択。</p>
+        <p id="i18n-guide-step2">・<strong>タッチ/マウス操作:</strong> タップして各種機能やアプリを開きます。</p>
+        <p id="i18n-guide-step3">・<strong>BGM機能:</strong> BGMパネルを押すことで常時BGMのON/OFFを切り替えられます。</p>
       </div>
       <div class="flex justify-end pt-2">
-        <button onclick="toggleModal('modal-guide')" class="px-4 py-2 bg-blue-600 rounded text-sm font-medium">閉じる</button>
+        <button id="i18n-guide-close" onclick="closeModal('modal-guide')" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-sm font-medium">閉じる</button>
       </div>
     </div>
   </div>
@@ -330,6 +332,142 @@
     };
     // =========================================================================
 
+    // 多言語（i18n）テキスト辞書
+    const I18N_DICTIONARY = {
+      ja: {
+        tvInstruction: 'テレビをご覧になる場合、リモコンの「地デジ」<br>ボタンを押してお楽しみください。',
+        vod: 'VOD',
+        mirroring: 'ミラーリング',
+        cast: 'キャスト',
+        search: '検索',
+        bgm: 'BGM',
+        bgmPlaying: '再生中 🎵',
+        bgmStopped: '停止中',
+        news: 'ニュース',
+        guideBtn: 'リモコン操作のご案内',
+        langBtn: 'Language / 言語選択',
+        weatherSuffix: 'の天気',
+        tempLabel: '気温(℃) 最低/最高',
+        rainLabel: '降水確率(%)',
+        mirroringTitle: 'スマホ画面のミラーリング手順',
+        iosTitle: '📱 iPhone / iPad の場合 (AirPlay)',
+        iosStep1: 'スマホをテレビと同じWi-Fiに接続します。',
+        iosStep2: '画面右上からスワイプして「コントロールセンター」を開きます。',
+        iosStep3: '「画面ミラーリング」アイコンをタップします。',
+        iosStep4: '一覧から対象のテレビを選択してください。',
+        androidTitle: '🤖 Android の場合 (キャスト/ミラーリング)',
+        androidStep1: 'クイック設定から「画面のキャスト」または「Smart View」を選択。',
+        androidStep2: 'テレビ端末を選択すると画面が投影されます。',
+        mirroringClose: '了解 / 閉じる',
+        guideTitle: '操作のご案内',
+        guideStep1: '・<strong>リモコン/キーボード操作:</strong> 矢印キー [↑][↓][←][→] で移動、[Enter] で選択。',
+        guideStep2: '・<strong>タッチ/マウス操作:</strong> タップして各種機能やアプリを開きます。',
+        guideStep3: '・<strong>BGM機能:</strong> BGMパネルを押すことで常時BGMのON/OFFを切り替えられます。',
+        guideClose: '閉じる',
+        langTitle: '言語設定 / Language',
+        langSub: '表示言語を選択してください / Select Language'
+      },
+      en: {
+        tvInstruction: 'To watch TV, press the "TERRESTRIAL" button<br>on your remote control.',
+        vod: 'VOD',
+        mirroring: 'Mirroring',
+        cast: 'Cast',
+        search: 'Search',
+        bgm: 'BGM',
+        bgmPlaying: 'Playing 🎵',
+        bgmStopped: 'Stopped',
+        news: 'News',
+        guideBtn: 'Remote Control Guide',
+        langBtn: 'Language Settings',
+        weatherSuffix: ' Weather',
+        tempLabel: 'Temp(°C) Min/Max',
+        rainLabel: 'Rain Prob.(%)',
+        mirroringTitle: 'Screen Mirroring Instructions',
+        iosTitle: '📱 For iPhone / iPad (AirPlay)',
+        iosStep1: 'Connect your device to the same Wi-Fi as the TV.',
+        iosStep2: 'Swipe down from the top-right to open Control Center.',
+        iosStep3: 'Tap the "Screen Mirroring" icon.',
+        iosStep4: 'Select the target TV device from the list.',
+        androidTitle: '🤖 For Android (Cast / Mirroring)',
+        androidStep1: 'Select "Cast Screen" or "Smart View" from Quick Settings.',
+        androidStep2: 'Select your TV device to start screen mirroring.',
+        mirroringClose: 'OK / Close',
+        guideTitle: 'Operation Guide',
+        guideStep1: '・<strong>Remote/Keyboard:</strong> Use Arrow keys [↑][↓][←][→] to navigate, [Enter] to select.',
+        guideStep2: '・<strong>Touch/Mouse:</strong> Tap or click tiles to open functions and apps.',
+        guideStep3: '・<strong>BGM Feature:</strong> Press the BGM tile to toggle background music ON/OFF.',
+        guideClose: 'Close',
+        langTitle: 'Language Settings',
+        langSub: 'Please select your language'
+      },
+      zh: {
+        tvInstruction: '如需观看电视，请按遥控器上的“地面数字”按钮。',
+        vod: 'VOD 点播',
+        mirroring: '屏幕镜像',
+        cast: '投屏',
+        search: '搜索',
+        bgm: '背景音乐',
+        bgmPlaying: '播放中 🎵',
+        bgmStopped: '已停止',
+        news: '新闻',
+        guideBtn: '遥控器操作指南',
+        langBtn: '语言选择 / Language',
+        weatherSuffix: ' 天气',
+        tempLabel: '气温(℃) 最低/最高',
+        rainLabel: '降水概率(%)',
+        mirroringTitle: '手机屏幕镜像步骤',
+        iosTitle: '📱 iPhone / iPad (AirPlay)',
+        iosStep1: '将手机连接至与电视相同的 Wi-Fi 网络。',
+        iosStep2: '从屏幕右上角下滑打开“控制中心”。',
+        iosStep3: '点击“屏幕镜像”图标。',
+        iosStep4: '从设备列表中选择目标电视。',
+        androidTitle: '🤖 Android (投屏 / 镜像)',
+        androidStep1: '在快捷设置中选择“屏幕投屏”或“Smart View”。',
+        androidStep2: '选择电视设备即可开始投屏。',
+        mirroringClose: '确定 / 关闭',
+        guideTitle: '操作指南',
+        guideStep1: '・<strong>遥控器/键盘:</strong> 使用方向键 [↑][↓][←][→] 移动，[Enter] 确认。',
+        guideStep2: '・<strong>触摸/鼠标:</strong> 点击图标即可打开相应功能或应用。',
+        guideStep3: '・<strong>背景音乐:</strong> 点击 BGM 图标可随时开启或关闭背景音乐。',
+        guideClose: '关闭',
+        langTitle: '语言设置 / Language',
+        langSub: '请选择显示语言 / Select Language'
+      },
+      ko: {
+        tvInstruction: 'TV를 시청하시려면 리모컨의 \'지상파\'<br>버튼을 눌러주세요.',
+        vod: 'VOD',
+        mirroring: '화면 미러링',
+        cast: '캐스트',
+        search: '검색',
+        bgm: 'BGM',
+        bgmPlaying: '재생 중 🎵',
+        bgmStopped: '정지됨',
+        news: '뉴스',
+        guideBtn: '리모컨 조작 안내',
+        langBtn: '언어 선택 / Language',
+        weatherSuffix: ' 날씨',
+        tempLabel: '기온(℃) 최저/최고',
+        rainLabel: '강수확률(%)',
+        mirroringTitle: '스마트폰 화면 미러링 안내',
+        iosTitle: '📱 iPhone / iPad의 경우 (AirPlay)',
+        iosStep1: '스마트폰을 TV와 동일한 Wi-Fi에 연결합니다.',
+        iosStep2: '화면 오른쪽 위에서 쓸어내려 \'제어 센터\'를 엽니다.',
+        iosStep3: '\'화면 미러링\' 아이콘을 탭합니다.',
+        iosStep4: '목록에서 대상 TV 기기를 선택하세요.',
+        androidTitle: '🤖 Android의 경우 (캐스트/미러링)',
+        androidStep1: '퀵 설정에서 \'화면 캐스트\' 또는 \'Smart View\'를 선택합니다.',
+        androidStep2: 'TV 기기를 선택하면 화면이 공유됩니다.',
+        mirroringClose: '확인 / 닫기',
+        guideTitle: '조작 안내',
+        guideStep1: '・<strong>리모컨/키보드:</strong> 화살표 키 [↑][↓][←][→]로 이동, [Enter]로 선택.',
+        guideStep2: '・<strong>터치/마우스:</strong> 탭하여 각종 기능 및 앱을 실행합니다.',
+        guideStep3: '・<strong>BGM 기능:</strong> BGM 타일을 눌러 배경음악 ON/OFF를 전환할 수 있습니다.',
+        guideClose: '닫기',
+        langTitle: '언어 설정 / Language',
+        langSub: '표시 언어를 선택해 주세요 / Select Language'
+      }
+    };
+
     // Lucide Icons Initialization
     lucide.createIcons();
 
@@ -337,6 +475,68 @@
     let focusableElements = [];
     let currentFocusIndex = 0;
     let bgmPlaying = false;
+    let currentLanguage = 'ja';
+
+    function applyLanguage(lang) {
+      currentLanguage = lang;
+      const t = I18N_DICTIONARY[lang] || I18N_DICTIONARY.ja;
+
+      // Header & Tiles
+      document.getElementById('i18n-tv-instruction').innerHTML = t.tvInstruction;
+      document.getElementById('i18n-tile-vod').textContent = t.vod;
+      document.getElementById('i18n-tile-mirroring').textContent = t.mirroring;
+      document.getElementById('i18n-tile-cast').textContent = t.cast;
+      document.getElementById('i18n-tile-search').textContent = t.search;
+      document.getElementById('i18n-tile-bgm').textContent = t.bgm;
+      document.getElementById('i18n-tile-news').textContent = t.news;
+
+      // Footer
+      document.getElementById('i18n-btn-guide').textContent = t.guideBtn;
+      document.getElementById('i18n-btn-lang').textContent = t.langBtn;
+      document.getElementById('i18n-weather-suffix').textContent = t.weatherSuffix;
+      document.getElementById('i18n-weather-temp').textContent = t.tempLabel;
+      document.getElementById('i18n-weather-rain').textContent = t.rainLabel;
+
+      // Mirroring Modal
+      document.getElementById('i18n-modal-mirroring-title').childNodes[1].textContent = " " + t.mirroringTitle;
+      document.getElementById('i18n-ios-title').textContent = t.iosTitle;
+      document.getElementById('i18n-ios-step1').textContent = t.iosStep1;
+      document.getElementById('i18n-ios-step2').textContent = t.iosStep2;
+      document.getElementById('i18n-ios-step3').textContent = t.iosStep3;
+      document.getElementById('i18n-ios-step4').textContent = t.iosStep4;
+      document.getElementById('i18n-android-title').textContent = t.androidTitle;
+      document.getElementById('i18n-android-step1').textContent = t.androidStep1;
+      document.getElementById('i18n-android-step2').textContent = t.androidStep2;
+      document.getElementById('i18n-mirroring-close').textContent = t.mirroringClose;
+
+      // Guide Modal
+      document.getElementById('i18n-modal-guide-title').childNodes[1].textContent = " " + t.guideTitle;
+      document.getElementById('i18n-guide-step1').innerHTML = t.guideStep1;
+      document.getElementById('i18n-guide-step2').innerHTML = t.guideStep2;
+      document.getElementById('i18n-guide-step3').innerHTML = t.guideStep3;
+      document.getElementById('i18n-guide-close').textContent = t.guideClose;
+
+      // Language Modal
+      document.getElementById('i18n-modal-lang-title').childNodes[1].textContent = " " + t.langTitle;
+      document.getElementById('i18n-modal-lang-sub').textContent = t.langSub;
+
+      // Update BGM status badge text
+      updateBgmBadgeState();
+    }
+
+    function selectLanguage(lang) {
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('bg-blue-600/30', 'border-blue-500', 'border-2');
+        btn.classList.add('bg-slate-800', 'border-white/10', 'border');
+      });
+      const selected = document.getElementById(`lang-${lang}`);
+      if (selected) {
+        selected.classList.remove('bg-slate-800', 'border-white/10', 'border');
+        selected.classList.add('bg-blue-600/30', 'border-blue-500', 'border-2');
+      }
+
+      applyLanguage(lang);
+    }
 
     // --- System Clock & Date ---
     function updateClock() {
@@ -423,36 +623,48 @@
       }
     }
 
-    function selectLanguage(lang) {
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('bg-blue-600/30', 'border-blue-500', 'border-2');
-        btn.classList.add('bg-slate-800', 'border-white/10', 'border');
-      });
-      const selected = document.getElementById(`lang-${lang}`);
-      if (selected) {
-        selected.classList.remove('bg-slate-800', 'border-white/10', 'border');
-        selected.classList.add('bg-blue-600/30', 'border-blue-500', 'border-2');
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.remove('hidden');
+        lucide.createIcons();
       }
     }
 
-    function toggleModal(modalId) {
+    function closeModal(modalId) {
       const modal = document.getElementById(modalId);
-      modal.classList.toggle('hidden');
+      if (modal) {
+        modal.classList.add('hidden');
+      }
+    }
+
+    function updateBgmBadgeState() {
+      const badge = document.getElementById('bgm-status-badge');
+      const icon = document.getElementById('bgm-icon');
+      const t = I18N_DICTIONARY[currentLanguage] || I18N_DICTIONARY.ja;
+
+      if (bgmPlaying) {
+        if (badge) {
+          badge.textContent = t.bgmPlaying;
+          badge.className = "absolute bottom-2 text-xs bg-green-500/80 px-2 py-0.5 rounded-full text-white font-medium";
+        }
+        if (icon) icon.classList.add('animate-bounce', 'text-green-400');
+      } else {
+        if (badge) {
+          badge.textContent = t.bgmStopped;
+          badge.className = "absolute bottom-2 text-xs bg-white/20 px-2 py-0.5 rounded-full text-white/80";
+        }
+        if (icon) icon.classList.remove('animate-bounce', 'text-green-400');
+      }
     }
 
     // --- Auto BGM Controller ---
     function playBGM() {
       const bgmPlayer = document.getElementById('bgm-player');
-      const badge = document.getElementById('bgm-status-badge');
-      const icon = document.getElementById('bgm-icon');
 
       bgmPlayer.play().then(() => {
         bgmPlaying = true;
-        if (badge) {
-          badge.textContent = "再生中 🎵";
-          badge.classList.replace('bg-white/20', 'bg-green-500/80');
-        }
-        if (icon) icon.classList.add('animate-bounce', 'text-green-400');
+        updateBgmBadgeState();
       }).catch(err => {
         console.log("Autoplay waiting for initial user interaction:", err);
       });
@@ -460,16 +672,9 @@
 
     function pauseBGM() {
       const bgmPlayer = document.getElementById('bgm-player');
-      const badge = document.getElementById('bgm-status-badge');
-      const icon = document.getElementById('bgm-icon');
-
       bgmPlayer.pause();
       bgmPlaying = false;
-      if (badge) {
-        badge.textContent = "停止中";
-        badge.classList.replace('bg-green-500/80', 'bg-white/20');
-      }
-      if (icon) icon.classList.remove('animate-bounce', 'text-green-400');
+      updateBgmBadgeState();
     }
 
     function toggleBGM() {
@@ -480,7 +685,6 @@
       }
     }
 
-    // Attempt autoplay immediately, fallback to start on first interaction (click or keypress)
     function enableAutoplayHandlers() {
       playBGM();
 
@@ -496,7 +700,21 @@
       document.addEventListener('keydown', startOnInteraction);
     }
 
-    // --- Remote Control / Keyboard Navigation ---
+    // 2D grid spatial layout navigation mapping
+    const NAV_MAP = {
+      0:  { up: 0,  down: 3,  left: 0,  right: 1  }, // VOD
+      1:  { up: 1,  down: 4,  left: 0,  right: 2  }, // ミラーリング
+      2:  { up: 2,  down: 5,  left: 1,  right: 6  }, // キャスト
+      3:  { up: 0,  down: 9,  left: 3,  right: 4  }, // 検索
+      4:  { up: 1,  down: 10, left: 3,  right: 5  }, // BGM
+      5:  { up: 2,  down: 10, left: 4,  right: 7  }, // ニュース
+      6:  { up: 6,  down: 7,  left: 2,  right: 6  }, // YouTube
+      7:  { up: 6,  down: 8,  left: 5,  right: 7  }, // Abema
+      8:  { up: 7,  down: 10, left: 5,  right: 8  }, // Hulu
+      9:  { up: 3,  down: 9,  left: 9,  right: 10 }, // ガイドボタン
+      10: { up: 4,  down: 10, left: 9,  right: 10 }  // 言語設定ボタン
+    };
+
     function initFocusNavigation() {
       focusableElements = Array.from(document.querySelectorAll('.focusable'));
       if (focusableElements.length > 0) {
@@ -504,34 +722,35 @@
       }
 
       document.addEventListener('keydown', (e) => {
-        if (document.querySelector('.fixed:not(.hidden)')) return;
-
-        let newIndex = currentFocusIndex;
-
-        switch (e.key) {
-          case 'ArrowRight':
-            newIndex = (currentFocusIndex + 1) % focusableElements.length;
-            break;
-          case 'ArrowLeft':
-            newIndex = (currentFocusIndex - 1 + focusableElements.length) % focusableElements.length;
-            break;
-          case 'ArrowDown':
-            if (currentFocusIndex + 3 < focusableElements.length) {
-              newIndex = currentFocusIndex + 3;
-            }
-            break;
-          case 'ArrowUp':
-            if (currentFocusIndex - 3 >= 0) {
-              newIndex = currentFocusIndex - 3;
-            }
-            break;
-          case 'Enter':
-            focusableElements[currentFocusIndex].click();
-            return;
+        const key = e.key || e.keyCode;
+        
+        // Handle visible open modals (Back or Enter or Escape closes them)
+        const openModalEl = document.querySelector('.fixed:not(.hidden)');
+        if (openModalEl) {
+          if (key === 'Escape' || key === 'BackSpace' || key === 27 || key === 8 || key === 10009 || key === 'Enter' || key === 13) {
+            openModalEl.classList.add('hidden');
+            e.preventDefault();
+          }
+          return;
         }
 
-        if (newIndex !== currentFocusIndex) {
-          setFocus(newIndex);
+        let direction = null;
+        if (key === 'ArrowRight' || key === 39) direction = 'right';
+        if (key === 'ArrowLeft' || key === 37) direction = 'left';
+        if (key === 'ArrowDown' || key === 40) direction = 'down';
+        if (key === 'ArrowUp' || key === 38) direction = 'up';
+
+        if (direction && NAV_MAP[currentFocusIndex]) {
+          e.preventDefault();
+          const nextIndex = NAV_MAP[currentFocusIndex][direction];
+          if (nextIndex !== undefined) {
+            setFocus(nextIndex);
+          }
+        } else if (key === 'Enter' || key === 13 || key === ' ') {
+          e.preventDefault();
+          if (focusableElements[currentFocusIndex]) {
+            focusableElements[currentFocusIndex].click();
+          }
         }
       });
     }
@@ -539,17 +758,20 @@
     function setFocus(index) {
       focusableElements.forEach(el => el.classList.remove('focused'));
       currentFocusIndex = index;
-      focusableElements[currentFocusIndex].classList.add('focused');
+      if (focusableElements[currentFocusIndex]) {
+        focusableElements[currentFocusIndex].classList.add('focused');
+      }
     }
 
     // --- Dynamic Action Handlers ---
-    document.querySelectorAll('.tv-tile').forEach(tile => {
-      tile.addEventListener('click', function() {
+    document.querySelectorAll('.tv-tile, .footer-btn').forEach(tile => {
+      tile.addEventListener('click', function(e) {
+        e.stopPropagation();
         const action = this.getAttribute('data-action');
         switch (action) {
           case 'mirroring':
           case 'cast':
-            toggleModal('modal-mirroring');
+            openModal('modal-mirroring');
             break;
           case 'youtube':
             window.open('https://www.youtube.com', '_blank');
@@ -566,8 +788,13 @@
           case 'search':
             window.open('https://www.google.com', '_blank');
             break;
+          case 'guide':
+            openModal('modal-guide');
+            break;
+          case 'settings':
+            openModal('modal-settings');
+            break;
           default:
-            alert(`【${action.toUpperCase()}】機能を選択しました。`);
             break;
         }
       });
@@ -575,6 +802,7 @@
 
     // Initialize System
     loadSettings();
+    applyLanguage('ja');
     initFocusNavigation();
     fetchLiveWeather();
     enableAutoplayHandlers();
